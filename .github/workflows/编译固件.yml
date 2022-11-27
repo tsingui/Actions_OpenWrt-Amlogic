@@ -11,8 +11,6 @@ name: 编译固件
 on:
   repository_dispatch:
   workflow_dispatch:
-  schedule:
-    - cron: 0 23 * * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -154,7 +152,7 @@ jobs:
         PACKAGE_SOC: s905d_s905x3
        # KERNEL_AUTO_LATEST: false
        # KERNEL_REPO_URL: https://github.com/tsingui/Actions_OpenWrt-Amlogic/tree/main/kernel
-       # KERNEL_REPO_URL: https://github.com/ophub/kernel/tree/main/pub/stable
+        KERNEL_REPO_URL: https://github.com/ophub/kernel/tree/main/pub/stable
         KERNEL_VERSION_NAME: 5.4.200_5.15.60_6.0.1
 
     - name: 发布固件
