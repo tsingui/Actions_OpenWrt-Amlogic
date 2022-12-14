@@ -37,7 +37,8 @@ sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba
 
 # 拉取软件包
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
-git clone https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
+git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
+git clone -b packages https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 # git clone https://github.com/kenzok8/small-package package/small-package
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 # git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
