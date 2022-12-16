@@ -45,15 +45,8 @@ jobs:
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
-          ### **适用于Amlogic平台的N1盒子OpenWrt固件--全插件**
+          ### **适用于Amlogic平台OpenWrt固件**
           * **固件信息：**
           默认IP: `10.57.20.1`
           默认用户名: `root`
           默认密码: `password`
-          * **使用方法：**
-          1. 安装固件：写入U盘直接使用；U盘启动后可输入命令 `openwrt-install-amlogic` 按照英文提示写入到emmc
-          2. 更新固件：将固件放在 `/mnt/mmcblk2p4/` 目录下，输入命令 `openwrt-update-amlogic` 可直接更新
-          3. 登录Luci界面后，可直接使用`晶晨宝盒`插件进行写入emmc或者更新操作（使用前先按需求填写好插件设置），免去手动输入命令！
-          * **更新说明：**
-          目前已集成大部分常用插件！
-
