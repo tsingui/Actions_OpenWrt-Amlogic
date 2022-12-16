@@ -25,13 +25,11 @@ env:
 
 jobs:
   build:
-    # runs-on: ubuntu-20.04
     runs-on: ubuntu-22.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
     - name: Checkout
-      # uses: actions/checkout@main
       uses: actions/checkout@v2
 
     - name: 检查服务器配置
@@ -119,7 +117,7 @@ jobs:
         cd openwrt
         echo -e "$(($(nproc) + 1)) thread compile"
         make -j$(($(nproc) + 1)) || make -j1 || make -j1 V=s
-        echo "::set-output name={status}::{success}"
+        echo "status=success" >> $GITHUB_OUTPUT
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_OUTPUT
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_OUTPUT
@@ -171,4 +169,3 @@ jobs:
           默认IP: `10.57.20.1`
           默认用户名: `root`
           默认密码: `password`
-
