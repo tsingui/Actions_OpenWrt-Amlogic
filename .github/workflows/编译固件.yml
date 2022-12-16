@@ -132,9 +132,9 @@ jobs:
         echo "列出空间占用前10的目录或文件："
         sudo du -h --max-depth=1 /workdir/openwrt |sort -nr | head -10
 
-    - name: 打包内核
-      uses: unifreq/openwrt_packit@master
-      env:
+        - name: 打包内核
+        uses: unifreq/openwrt_packit@master
+        env:
         WHOAMI: tsingui
         OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
        # PACKAGE_SOC: vplus_beikeyun_l1pro_s905d_s905x2_s905x3_s912_s922x_s922x-n2_qemu
