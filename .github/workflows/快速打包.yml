@@ -35,7 +35,7 @@ jobs:
        # KERNEL_AUTO_LATEST: false
        # KERNEL_REPO_URL: https://github.com/tsingui/OpenWrt-Amlogic/tree/main/kernel
         KERNEL_REPO_URL: https://github.com/ophub/kernel/tree/main/pub/stable
-        KERNEL_VERSION_NAME: 5.4.200_5.15.60_6.1.3
+        KERNEL_VERSION_NAME: 5.15.60_6.1.3
 
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
