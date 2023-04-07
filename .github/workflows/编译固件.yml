@@ -141,8 +141,7 @@ jobs:
        # PACKAGE_SOC: vplus_beikeyun_l1pro_s905d_s905x2_s905x3_s912_s922x_s922x-n2_qemu
         PACKAGE_SOC: s905d_s905x3
        # KERNEL_AUTO_LATEST: false
-       # KERNEL_REPO_URL: https://github.com/tsingui/Actions_OpenWrt-Amlogic/tree/main/kernel
-       # KERNEL_REPO_URL: https://github.com/ophub/kernel/tree/main/pub/stable
+       # KERNEL_REPO_URL: https://github.com/tsingui/OpenWrt/releases/tag/kernel_stable
         KERNEL_VERSION_NAME: 5.4.200_5.15.80_6.0.1_6.1.5
 
     - name: 发布固件
