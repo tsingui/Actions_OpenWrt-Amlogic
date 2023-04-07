@@ -33,8 +33,8 @@ jobs:
         OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
         PACKAGE_SOC: s905d_s905x3
        # KERNEL_AUTO_LATEST: false
-       # KERNEL_REPO_URL: https://github.com/tsingui/OpenWrt-Amlogic/tree/main/kernel
-        KERNEL_REPO_URL: https://github.com/ophub/kernel/tree/main/pub/stable
+       # KERNEL_REPO_URL: https://github.com/tsingui/kernel/releases/tag/kernel_stable
+        KERNEL_REPO_URL: https://github.com/ophub/kernel/releases/tag/kernel_stable
         KERNEL_VERSION_NAME: 5.15.60_6.1.3
 
     - name: Upload OpenWrt Firmware to Release
