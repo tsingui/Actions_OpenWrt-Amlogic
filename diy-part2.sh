@@ -25,7 +25,7 @@ sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/auto
 # sed -i "s/OpenWrt /OpenWrt Build $(TZ=UTC-8 date "+%Y.%m.%d") Compiled By TSingui /g" package/lean/default-settings/files/zzz-default-settings
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 10.57.20.1）
-sed -i 's/192.168.1.1/10.57.20.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.57.21.2/g' package/base-files/files/bin/config_generate
 
 # Modify system hostname（FROM OpenWrt CHANGE TO OpenWrt-N1）
 # sed -i 's/OpenWrt/OpenWrt-N1/g' package/base-files/files/bin/config_generate
