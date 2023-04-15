@@ -4,7 +4,7 @@
 # Cron: min (0 - 59) / hour (0 - 23) / day of month (1 - 31) / month (1 - 12) / day of week (0 - 6)(Sunday - Saturday)
 #============================================================================================================
 
-name: 快速打包
+name: 快速打包固件
 
 on:
   repository_dispatch:
@@ -47,6 +47,6 @@ jobs:
         body: |
           ### **适用于Amlogic平台OpenWrt固件**
           * **固件信息：**
-          默认IP: `10.57.20.1`
+          默认IP: `10.57.21.2`
           默认用户名: `root`
           默认密码: `password`
