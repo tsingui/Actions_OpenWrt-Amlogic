@@ -112,35 +112,12 @@ jobs:
         echo "build_tag=openwrt_armvirt_v8_$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
-    - name: 清理磁盘空间
-      if: (!cancelled())
-      run: |
-        echo "清理之前："
-        df -hT
-        mkdir openwrt-armvirt
-        mv openwrt/bin/targets/*/*/*.tar.gz openwrt-armvirt/
-        echo -e "\n"
-        echo "列出空间占用前10的目录或文件："
-        sudo du -h --max-depth=1 /workdir/openwrt |sort -nr | head -10
-        rm -rf /workdir/openwrt/*
-        echo -e "\n"
-        echo "清理之后："
-        df -hT
-        echo -e "\n"
-        echo "当前路径文件"
-        ls -l
-        echo -e "\n"
-        echo "列出空间占用前10的目录或文件："
-        sudo du -h --max-depth=1 /workdir/openwrt |sort -nr | head -10
-
     - name: 发布通用镜像
       uses: ncipollo/release-action@main
-      env:
-        OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
       if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
       with:
         tag: ${{ steps.compile.outputs.build_tag }}
-        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        artifacts: "openwrt/bin/targets/*/*/*.tar.gz"
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
