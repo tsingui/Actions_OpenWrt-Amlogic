@@ -6,7 +6,7 @@
 # Cron: min (0 - 59) / hour (0 - 23) / day of month (1 - 31) / month (1 - 12) / day of week (0 - 6)(Sunday - Saturday)
 #===========================================================================================================
 
-name: 编译固件
+name: 编译通用镜像
 
 on:
   repository_dispatch:
@@ -103,7 +103,7 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: 编译固件
+    - name: 编译通用镜像
       id: compile
       run: |
         cd openwrt
@@ -133,7 +133,7 @@ jobs:
         echo "列出空间占用前10的目录或文件："
         sudo du -h --max-depth=1 /workdir/openwrt |sort -nr | head -10
 
-    - name: 发布镜像
+    - name: 发布通用镜像
       uses: ncipollo/release-action@main
       if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
       with:
@@ -144,6 +144,6 @@ jobs:
         body: |
           ### **适用于Amlogic平台Image**
           * **固件信息：**
-          默认IP: `10.57.20.2`
+          默认IP: `10.57.21.2`
           默认用户名: `root`
           默认密码: `password`
