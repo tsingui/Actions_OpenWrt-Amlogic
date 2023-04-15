@@ -135,6 +135,8 @@ jobs:
 
     - name: 发布通用镜像
       uses: ncipollo/release-action@main
+      env:
+        OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
       if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
       with:
         tag: ${{ steps.compile.outputs.build_tag }}
