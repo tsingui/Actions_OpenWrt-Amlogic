@@ -13,7 +13,8 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  # REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
@@ -125,4 +126,4 @@ jobs:
           * **固件信息：**
           默认IP: `10.57.21.2`
           默认用户名: `root`
-          默认密码: `password`
+          默认密码: `空`
