@@ -40,8 +40,10 @@ sed -i 's/192.168.1.1/10.57.21.2/g' package/base-files/files/bin/config_generate
 
 # sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
 
-# Add luci-app-amlogic
+# Add software,luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+svn co https://github.com/messense/aliyundrive-webdav.git && mv aliyundrive-webdav/openwrt/aliyundrive-webdav/ package/aliyundrive-webdav/ && mv aliyundrive-webdav/openwrt/luci-app-aliyundrive-webdav/ package/luci-app-aliyundrive-webdav/ && rm -rf aliyundrive-webdav
+svn co https://github.com/messense/aliyundrive-fuse.git && mv aliyundrive-fuse/openwrt/aliyundrive-fuse/ package/aliyundrive-fuse/ && mv aliyundrive-fuse/openwrt/luci-app-aliyundrive-fuse/ package/luci-app-aliyundrive-fuse/ && rm -rf aliyundrive-fuse
 # git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 # git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 # git clone https://github.com/kenzok8/small-package package/small-package
