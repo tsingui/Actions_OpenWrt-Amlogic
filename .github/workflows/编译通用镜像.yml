@@ -65,7 +65,6 @@ jobs:
         # 清理多余文件，腾出磁盘空间
         docker rmi `docker images -q`
         # sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell mysql* php* mssql-tools msodbcsql17 android*
-        sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox powershell mssql-tools msodbcsql17
         sudo rm -rf /etc/mysql /etc/php /swapfile
 
     - name: 克隆源码
