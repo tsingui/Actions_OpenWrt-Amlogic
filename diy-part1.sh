@@ -12,6 +12,10 @@
 
 # Add a feed source
 # echo 'src-git helloworld https://github.com/fw876/helloworld' >> feeds.conf.default
+# echo 'src-git luci-app-amlogic https://github.com/ophub/luci-app-amlogic.git;main' >> feeds.conf.default
+#aliyundrive
+echo 'src-git aliyundrive-fuse https://github.com/messense/aliyundrive-fuse.git;main' >> feeds.conf.default
+echo 'src-git aliyundrive-webdav https://github.com/messense/aliyundrive-webdav.git;main' >> feeds.conf.default
 #istore
 echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
 echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
