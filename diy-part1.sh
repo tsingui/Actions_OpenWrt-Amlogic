@@ -11,15 +11,18 @@
 #
 
 # Add a feed source
-#echo 'src-git helloworld https://github.com/fw876/helloworld' >> feeds.conf.default
+# echo 'src-git helloworld https://github.com/fw876/helloworld' >> feeds.conf.default
+#istore
 echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
 echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
 echo 'src-git istore https://github.com/linkease/istore.git;main' >> feeds.conf.default
+#passwall
 echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main" >> feeds.conf.default
 echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> feeds.conf.default
 echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> feeds.conf.default
-echo "src-git adguardhome https://github.com/rufengsuixing/luci-app-adguardhome.git;master" >> feeds.conf.default
-echo "src-git adguardhome_packages https://github.com/AdguardTeam/AdGuardHome.git;master" >> feeds.conf.default
+#adguardhome
+echo "src-git adguardhome https://github.com/kongfl888/luci-app-adguardhome.git;master" >> feeds.conf.default
+# echo "src-git adguardhome_packages https://github.com/AdguardTeam/AdGuardHome.git;master" >> feeds.conf.default
 
 ## 解除系统限制
 ulimit -u 10000
