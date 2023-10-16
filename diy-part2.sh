@@ -43,12 +43,12 @@ sed -i 's/192.168.1.1/10.57.21.2/g' package/base-files/files/bin/config_generate
 # Add software,luci-app-amlogic
 git clone --depth 1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/passwall-packages
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
 # git clone --depth 1 https://github.com/messense/aliyundrive-fuse.git && mv aliyundrive-fuse/openwrt/* ./package && rm -rf aliyundrive-fuse
 # git clone --depth 1 https://github.com/messense/aliyundrive-webdav.git && mv aliyundrive-webdav/openwrt/* ./package && rm -rf aliyundrive-webdav
 # git clone --depth 1 https://github.com/linkease/istore.git && mv istore ./package
 # git clone --depth 1 https://github.com/linkease/nas-packages-luci.git && mv nas-packages-luci/luci/* ./package && rm -rf nas-packages-luci
-# git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
-# git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 # git clone https://github.com/kenzok8/small-package package/small-package
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 # git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
