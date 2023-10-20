@@ -69,22 +69,23 @@ jobs:
         echo "COMPILE_STARTINGTIME=$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
         # 清理多余文件，腾出磁盘空间
         docker rmi `docker images -q`
+        echo "--------------------------硬盘信息--------------------------"
+        echo "硬盘详情："
+        df -Th
         sudo -E apt-get remove -y --purge azure-cli ghc zulu* llvm* firefox google* dotnet* powershell mysql* php* mssql-tools msodbcsql17 android*
         sudo rm -rf /etc/mysql /etc/php /usr/share/dotnet /usr/local/lib/android /opt/ghc 2>/dev/null
         echo "--------------------------硬盘信息--------------------------"
-        echo -e  "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
         echo "硬盘详情："
         df -Th
 
     - name: 克隆源码
       working-directory: /workdir
       run: |
-        df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
-        df -Th
+        df -hT $PWD
 
     - name: Cache
       uses: klever1988/cachewrtbuild@main
@@ -123,7 +124,7 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
-        df -Th
+        df -hT $PWD
 
     - name: 编译通用镜像
       id: compile
@@ -135,7 +136,7 @@ jobs:
         echo "status=success" >> $GITHUB_OUTPUT
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
-        df -Th
+        df -hT $PWD
 
     - name: 发布通用镜像
       uses: ncipollo/release-action@main
