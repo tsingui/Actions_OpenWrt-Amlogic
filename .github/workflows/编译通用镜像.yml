@@ -85,7 +85,7 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
-        df -hT $PWD
+        df -Th $PWD
 
     - name: Cache
       uses: klever1988/cachewrtbuild@main
@@ -124,7 +124,7 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
-        df -hT $PWD
+        df -Th $PWD
 
     - name: 编译通用镜像
       id: compile
@@ -136,7 +136,7 @@ jobs:
         echo "status=success" >> $GITHUB_OUTPUT
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
-        df -hT $PWD
+        df -Th $PWD
 
     - name: 发布通用镜像
       uses: ncipollo/release-action@main
