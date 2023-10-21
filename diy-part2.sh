@@ -41,8 +41,8 @@ sed -i 's/192.168.1.1/10.57.21.2/g' package/base-files/files/bin/config_generate
 # sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
 
 # Add software,luci-app-amlogic
-git clone --depth 1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+git clone --depth 1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone --depth 1 https://github.com/linkease/nas-packages-luci.git package/nas_luci
 git clone --depth 1 https://github.com/linkease/nas-packages.git package/nas
 git clone --depth 1 https://github.com/linkease/istore.git package/istore
