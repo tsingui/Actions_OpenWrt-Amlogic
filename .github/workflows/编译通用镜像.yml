@@ -57,9 +57,6 @@ jobs:
         docker rmi `docker images -q`
         sudo -E apt-get remove -y --purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* php* mysql* mssql-tools msodbcsql17 android* || true
         sudo rm -rf /etc/apt/sources.list.d/* /etc/mysql /etc/php /usr/share/dotnet /usr/local/lib/android /opt/ghc 2>/dev/null
-        echo "--------------------------硬盘信息--------------------------"
-        echo "硬盘详情："
-        df -Th
         sudo -E apt-get -y update
         # sudo -E apt-get -y install $(curl -fsSL git.io/depends-ubuntu-2004)
         # sudo -E apt-get -y install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
@@ -82,9 +79,6 @@ jobs:
       run: |
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        echo "--------------------------硬盘信息--------------------------"
-        echo "硬盘详情："
-        df -Th $PWD
 
     - name: Cache
       uses: klever1988/cachewrtbuild@main
@@ -130,12 +124,12 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(($(nproc) + 1)) thread compile"
-        make -j$(($(nproc) + 1)) || make -j1 || make -j1 V=s
+        make -j$(($(nproc) + 1)) || df -Th || make -j1 || make -j1 V=s
         echo "build_tag=openwrt_armvirt_v8_$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
-        df -Th $PWD
+        df -Th
 
     - name: 发布通用镜像
       uses: ncipollo/release-action@main
