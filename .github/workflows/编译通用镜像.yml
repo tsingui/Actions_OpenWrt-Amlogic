@@ -66,10 +66,10 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+        echo "COMPILE_STARTINGTIME=$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
         # 清理多余文件，腾出磁盘空间
         docker rmi `docker images -q`
         sudo -E apt-get remove -y --purge azure-cli docker* ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* php* mysql* mssql-tools msodbcsql17 snap* aspnetcore android*
-        echo "COMPILE_STARTINGTIME=$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
         df -Th
