@@ -55,7 +55,7 @@ jobs:
       run: |
         # 清理多余文件，腾出磁盘空间
         docker rmi `docker images -q`
-        sudo -E apt-get remove -y --purge azure-cli docker* ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* php* mysql* mssql-tools msodbcsql17 snap* aspnetcore android*
+        sudo -E apt-get remove -y --purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* php* mongodb* moby* mysql* mssql-tools msodbcsql17 snap* aspnetcore android* || true
         sudo rm -rf /swapfile /etc/apt/sources.list.d /etc/mysql /etc/php /usr/share/dotnet /usr/local/lib/android 2>/dev/null
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
