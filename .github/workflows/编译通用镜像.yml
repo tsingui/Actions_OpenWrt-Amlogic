@@ -56,7 +56,7 @@ jobs:
         # 清理多余文件，腾出磁盘空间
         docker rmi `docker images -q`
         # sudo -E apt-get remove -y --purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* php* mysql* mssql-tools msodbcsql17 android* || true
-        sudo -E apt-get remove -y --purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* php* mongodb* moby* mysql* mssql-tools msodbcsql17  snap* aspnetcore  android* docker || true
+        sudo -E apt-get remove -y --purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* php* mongodb* moby* mysql* mssql-tools msodbcsql17  snap* aspnetcore  android* || true
         sudo rm -rf /etc/apt/sources.list.d/* /etc/mysql /etc/php /usr/share/dotnet /usr/local/lib/android /opt/ghc 2>/dev/null
         sudo -E apt-get -y update
         # sudo -E apt-get -y install $(curl -fsSL git.io/depends-ubuntu-2004)
