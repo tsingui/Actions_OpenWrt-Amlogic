@@ -57,7 +57,7 @@ jobs:
         docker rmi `docker images -q`
         sudo rm -rf /etc/apt/sources.list.d /etc/mysql /etc/php /usr/share/dotnet /usr/local/lib/android 2>/dev/null
         sudo -E apt-get -y update
-        sudo -E apt-get -y --purge azure-cli docker* ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* php* mysql* mssql-tools msodbcsql17 snap* aspnetcore android* || true
+        sudo -E apt-get remove -y --purge azure-cli docker* ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* php* mysql* mssql-tools msodbcsql17 snap* aspnetcore android* || true
         # sudo -E apt-get -y install $(curl -fsSL git.io/depends-ubuntu-2004)
         # sudo -E apt-get -y install $(curl -fsSL https://is.gd/depends_ubuntu_2204)
         sudo -E apt-get install -y build-essential clang flex bison g++ gawk \
