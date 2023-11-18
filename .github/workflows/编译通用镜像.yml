@@ -38,7 +38,7 @@ jobs:
       run: |
         echo "警告?"
         echo "若分配的服务器性能不足，插件选择过多时，建议重新运行！"
-        echo "已知CPU型号性能：2-8370C =4-AMD 7763 > 8272CL > 8171M > E5系列"
+        echo "已知CPU型号性能：4-AMD 7763 > 2-8370C > 2-8272CL > 2-8171M > E5系列"
         echo "--------------------------CPU信息--------------------------"
         echo "CPU物理数量:$(cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l)"
         echo -e "CPU核心及版本信息：$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
