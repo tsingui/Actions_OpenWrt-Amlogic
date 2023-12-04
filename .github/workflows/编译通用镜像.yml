@@ -9,12 +9,9 @@
 name: 编译通用镜像
 
 on:
- # push:
- #   paths:
- #     - '.github/workflows/编译通用镜像.yml'
   schedule:
-    - cron: 0 0 * * 1
-  repository_dispatch:
+    - cron: '0 8 * * 2'
+ # repository_dispatch:
   workflow_dispatch:
 
 env:
