@@ -10,7 +10,7 @@ name: 编译通用镜像
 
 on:
   schedule:
-    - cron: '0 8 * * 2'
+    - cron: '30 8 * * 2,6'
  # repository_dispatch:
   workflow_dispatch:
 
