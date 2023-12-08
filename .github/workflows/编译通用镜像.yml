@@ -9,10 +9,10 @@
 name: 编译通用镜像
 
 on:
- # schedule:
- #   - cron: '30 8 * * 2,6'
- # repository_dispatch:
+  schedule:
+    - cron: "0 0 1/2 * *"
   workflow_dispatch:
+
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
