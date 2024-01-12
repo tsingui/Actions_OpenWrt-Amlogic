@@ -55,10 +55,12 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/luc
 # git clone --depth 1 https://github.com/linkease/istore.git && mv istore ./package
 # git clone --depth 1 https://github.com/linkease/nas-packages-luci.git && mv nas-packages-luci/luci/* ./package && rm -rf nas-packages-luci
 # git clone https://github.com/kenzok8/small-package package/small-package
-# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-# git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 # 删除重复包
+rm -rf feeds/luci/applications/luci-app-argon-config
+rm -rf feeds/luci/themes/luci-theme-argon
 # rm -rf feeds/luci/applications/luci-app-netdata
 # rm -rf package/small-package/luci-app-amlogic
 # rm -rf package/small-package/luci-app-argon*
