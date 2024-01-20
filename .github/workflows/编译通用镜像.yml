@@ -9,13 +9,13 @@
 name: 编译通用镜像
 
 on:
-  schedule:
-    - cron: "0 0 1/2 * *"
+  # schedule:
+  #   - cron: "0 0 1/2 * *"
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  # REPO_URL: https://github.com/immortalwrt/immortalwrt
+  # REPO_URL: https://github.com/coolsnowwolf/lede.git
+  REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   # REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: master
   # REPO_BRANCH: main
