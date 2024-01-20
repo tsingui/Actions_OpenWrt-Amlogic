@@ -46,8 +46,7 @@ sed -i 's/192.168.1.1/10.57.21.2/g' package/base-files/files/bin/config_generate
 # svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-diskman package/luci-app-diskman
 # git clone --depth 1 https://github.com/lisaac/luci-app-diskman.git && mv luci-app-diskman/applications/luci-app-diskman package/luci-app-diskman && rm -rf luci-app-diskman
 # svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
-
-git clone https://github.com/sbwml/luci-app-alist package/luci-app-alist
+# git clone https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 git clone --depth 1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 # mkdir -p package/luci-app-diskman && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/applications/luci-app-diskman/Makefile -O package/luci-app-diskman/Makefile
@@ -55,19 +54,19 @@ git clone --depth 1 https://github.com/kongfl888/luci-app-adguardhome.git packag
 git clone --depth 1 https://github.com/linkease/nas-packages-luci.git package/nas_luci
 git clone --depth 1 https://github.com/linkease/nas-packages.git package/nas
 git clone --depth 1 https://github.com/linkease/istore.git package/istore
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/luci-app-passwall/packages
+# git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
+# git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/luci-app-passwall/packages
 # git clone --depth 1 https://github.com/messense/aliyundrive-fuse.git && mv aliyundrive-fuse/openwrt/* ./package && rm -rf aliyundrive-fuse
 # git clone --depth 1 https://github.com/messense/aliyundrive-webdav.git && mv aliyundrive-webdav/openwrt/* ./package && rm -rf aliyundrive-webdav
 # git clone --depth 1 https://github.com/linkease/istore.git && mv istore ./package
 # git clone --depth 1 https://github.com/linkease/nas-packages-luci.git && mv nas-packages-luci/luci/* ./package && rm -rf nas-packages-luci
 # git clone https://github.com/kenzok8/small-package package/small-package
 #for openwrt
-# git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-# git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 # for lede
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+# git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 # 删除重复包
 rm -rf feeds/luci/themes/luci-theme-argon
