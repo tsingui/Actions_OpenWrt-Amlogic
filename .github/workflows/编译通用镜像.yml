@@ -134,6 +134,14 @@ jobs:
         echo "硬盘详情："
         df -Th
 
+    - name: 打包Packages文件
+      id: Packages
+      if: steps.compile.outputs.status == 'success' && !cancelled()
+      run: |
+        cd $GITHUB_WORKSPACE
+        tar -zcvf AllPackages.tar.gz openwrt/bin/packages
+        cp AllPackages.tar.gz openwrt/bin/targets/*/*
+
     - name: 发布通用镜像
       uses: ncipollo/release-action@main
       if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
