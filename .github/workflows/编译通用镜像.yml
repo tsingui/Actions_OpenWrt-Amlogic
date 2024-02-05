@@ -31,13 +31,13 @@ env:
 
 jobs:
   build:
-    # runs-on: ubuntu-22.04
-    runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
+    runs-on: ubuntu-22.04
+    # runs-on: ubuntu-latest
+    if: ${{ github.event.repository.owner.id }} == ${{ github.event.sender.id }}
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: 检查服务器配置
       run: |
@@ -74,18 +74,21 @@ jobs:
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get clean
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
+        # sudo mkdir -p /workdir
+        # sudo chown $USER:$GROUPS /workdir
+        sudo chown $USER:$GROUPS /mnt
         echo "COMPILE_STARTINGTIME=$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
         df -Th
 
     - name: 克隆源码
-      working-directory: /workdir
+      # working-directory: /workdir
+      working-directory: /mnt
       run: |
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        # ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /mnt/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Cache
       uses: klever1988/cachewrtbuild@main
