@@ -9,16 +9,13 @@
 name: 编译通用镜像
 
 on:
-  workflow_dispatch:
-  repository_dispatch:
-
   push:
     branches:
       - main
-  schedule:
-    - cron: 0 16 * * *
-  watch:
-    types: started
+  # schedule:
+  #   - cron: 0 16 * * *
+  workflow_dispatch:
+  repository_dispatch:
 
 env:
   # REPO_URL: https://github.com/coolsnowwolf/lede.git
