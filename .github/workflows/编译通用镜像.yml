@@ -76,20 +76,34 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         # sudo mkdir -p /workdir
         # sudo chown $USER:$GROUPS /workdir
-        sudo chown $USER:$GROUPS /mnt
+        # sudo chown $USER:$GROUPS /mnt
         echo "COMPILE_STARTINGTIME=$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
         echo "--------------------------硬盘信息--------------------------"
         echo "硬盘详情："
         df -Th
 
+    - name: Combine Disks
+      uses: easimon/maximize-build-space@master
+      with:
+        swap-size-mb: 1024
+        temp-reserve-mb: 100
+        root-reserve-mb: 1024
+
+
+    - name: Checkout
+      uses: actions/checkout@main
+
     - name: 克隆源码
       # working-directory: /workdir
-      working-directory: /mnt
+      # working-directory: /mnt
       run: |
+        df -hT $GITHUB_WORKSPACE
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         # ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        ln -sf /mnt/openwrt $GITHUB_WORKSPACE/openwrt
-
+        # ln -sf /mnt/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        echo "OPENWRT_PATH=$PWD" >> $GITHUB_OUTPUT
+        
     - name: Cache
       uses: klever1988/cachewrtbuild@main
       with:
