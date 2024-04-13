@@ -164,8 +164,8 @@ jobs:
         cp AllPackages.tar.gz openwrt/bin/targets/*/*
         cd openwrt/bin/targets/armsr/armv8
         tar -zcvf kmodsPackages.tar.gz packages
-        ls -al && cd && cd $GITHUB_WORKSPACE
-        cp kmodsPackages.tar.gz openwrt/bin/targets/*/*
+        # ls -al && cd && cd $GITHUB_WORKSPACE
+        # cp kmodsPackages.tar.gz openwrt/bin/targets/*/*
 
     - name: 发布通用镜像
       uses: ncipollo/release-action@main
