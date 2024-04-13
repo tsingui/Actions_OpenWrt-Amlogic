@@ -173,7 +173,7 @@ jobs:
       id: Packages
       if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
       run: |
-        cd ${{ env.OPENWRT_PATH }}/bin/targets/*/*
+        cd ${{ env.OPENWRT_PATH }}/bin/targets/qualcommax/ipq60xx
         cat sha256sums
         cp ${{ env.OPENWRT_PATH }}/.config build.config
         mv -f ${{ env.OPENWRT_PATH }}/bin/packages/*/*/*.ipk packages
