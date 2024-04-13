@@ -24,7 +24,7 @@ env:
   CONFIG_FILE: ax1800.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-script.sh
-  CACHE_TOOLCHAIN: true
+  # CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   TZ: Asia/Shanghai
 
@@ -97,13 +97,13 @@ jobs:
         cd openwrt
         echo "OPENWRT_PATH=$PWD" >> $GITHUB_OUTPUT
         
-    - name: Cache Toolchain
-      if: env.CACHE_TOOLCHAIN == 'true'
-      uses: HiGarfield/cachewrtbuild@main
-      with:
-        ccache: false
-        mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
-        prefix: ${{ env.OPENWRT_PATH }}
+   # - name: Cache Toolchain
+   #   if: env.CACHE_TOOLCHAIN == 'true'
+   #   uses: HiGarfield/cachewrtbuild@main
+   #   with:
+   #     ccache: false
+   #     mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}
+   #     prefix: ${{ env.OPENWRT_PATH }}
 
     - name: 加载自定义feeds
       run: |
@@ -188,7 +188,7 @@ jobs:
         name: ${{ env.SOURCE_REPO }}-firmware-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE_PATH }}
   
-    - name: 发布通用镜像
+    - name: 发布通用固件
       if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled() && env.FIRMWARE_RELEASE == 'true'
       uses: ncipollo/release-action@main
       with:
