@@ -130,12 +130,6 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        SOURCE_REPO="$(echo $REPO_URL | awk -F '/' '{print $(NF)}')"
-        echo "SOURCE_REPO=$SOURCE_REPO" >> $GITHUB_OUTPUT
-        DEVICE_TARGET=$(cat .config | grep CONFIG_TARGET_BOARD | awk -F '"' '{print $2}')
-        echo "DEVICE_TARGET=$DEVICE_TARGET" >> $GITHUB_OUTPUT
-        DEVICE_SUBTARGET=$(cat .config | grep CONFIG_TARGET_SUBTARGET | awk -F '"' '{print $2}')
-        echo "DEVICE_SUBTARGET=$DEVICE_SUBTARGET" >> $GITHUB_OUTPUT
 
     - name: 下载软件包
       id: package
@@ -149,7 +143,7 @@ jobs:
         echo "硬盘详情："
         df -Th $PWD
 
-    - name: 编译通用镜像
+    - name: 编译固件
       id: compile
       run: |
         cd openwrt
@@ -162,38 +156,12 @@ jobs:
         echo "硬盘详情："
         df -Th
 
-    - name: Upload Bin Directory
-      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled() && env.UPLOAD_BIN_DIR == 'true'
-      uses: actions/upload-artifact@main
-      with:
-        name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
-        path: ${{ env.OPENWRT_PATH }}/bin
-
-    - name: 打包Packages文件
-      id: Packages
-      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
-      run: |
-        cd ${{ env.OPENWRT_PATH }}/bin/targets/qualcommax/ipq60xx
-        cat sha256sums
-        cp ${{ env.OPENWRT_PATH }}/.config build.config
-        mv -f ${{ env.OPENWRT_PATH }}/bin/packages/*/*/*.ipk packages
-        tar -zcf Packages.tar.gz packages && ls -al
-        rm -rf packages feeds.buildinfo version.buildinfo
-        echo "FIRMWARE_PATH=$PWD" >> $GITHUB_OUTPUT
-
-    - name: Upload Packages To Artifact
-      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled() && env.FIRMWARE_RELEASE != 'true'
-      uses: actions/upload-artifact@main
-      with:
-        name: ${{ env.SOURCE_REPO }}-firmware-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
-        path: ${{ env.FIRMWARE_PATH }}
-  
-    - name: 发布通用固件
-      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled() && env.FIRMWARE_RELEASE == 'true'
+    - name: 发布固件
       uses: ncipollo/release-action@main
+      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
       with:
         tag: ${{ steps.compile.outputs.build_tag }}
-        artifacts: ${{ env.FIRMWARE_PATH }}/*
+        artifacts: "openwrt/bin/targets/*/*/*.bin"
         allowUpdates: true
         token: ${{ secrets.GH_TOKEN }}
         body: |
