@@ -162,6 +162,9 @@ jobs:
         cd $GITHUB_WORKSPACE
         tar -zcvf AllPackages.tar.gz openwrt/bin/packages
         cp AllPackages.tar.gz openwrt/bin/targets/*/*
+        cd openwrt/bin/targets/armsr/armv8
+        tar -zcvf kmodsPackages.tar.gz kmods packages
+        cp kmodsPackages.tar.gz openwrt/bin/targets/*/*
 
     - name: 发布通用镜像
       uses: ncipollo/release-action@main
