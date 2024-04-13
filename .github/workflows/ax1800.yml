@@ -177,11 +177,11 @@ jobs:
         cat sha256sums
         cp ${{ env.OPENWRT_PATH }}/.config build.config
         mv -f ${{ env.OPENWRT_PATH }}/bin/packages/*/*/*.ipk packages
-        tar -zcf Packages.tar.gz packages
+        tar -zcf Packages.tar.gz packages && ls -al
         rm -rf packages feeds.buildinfo version.buildinfo
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_OUTPUT
 
-    - name: Upload Firmware To Artifact
+    - name: Upload Packages To Artifact
       if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled() && env.FIRMWARE_RELEASE != 'true'
       uses: actions/upload-artifact@main
       with:
