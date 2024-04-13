@@ -163,7 +163,7 @@ jobs:
         df -Th
 
     - name: Upload Bin Directory
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled() && env.UPLOAD_BIN_DIR == 'true'
       uses: actions/upload-artifact@main
       with:
         name: ${{ env.SOURCE_REPO }}-bin-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
@@ -171,7 +171,7 @@ jobs:
 
     - name: 打包Packages文件
       id: Packages
-      if: steps.compile.outputs.status == 'success' && !cancelled()
+      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
       run: |
         cd $OPENWRT_PATH/bin/targets/*/*
         cat sha256sums
@@ -182,16 +182,15 @@ jobs:
         echo "FIRMWARE_PATH=$PWD" >> $GITHUB_OUTPUT
 
     - name: Upload Firmware To Artifact
-      if: steps.compile.outputs.status == 'success' && env.FIRMWARE_RELEASE != 'true'
+      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled() && env.FIRMWARE_RELEASE != 'true'
       uses: actions/upload-artifact@main
       with:
         name: ${{ env.SOURCE_REPO }}-firmware-${{ env.DEVICE_TARGET }}-${{ env.DEVICE_SUBTARGET }}-${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE_PATH }}
   
     - name: 发布通用镜像
-      if: steps.compile.outputs.status == 'success' && env.FIRMWARE_RELEASE == 'true'
+      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled() && env.FIRMWARE_RELEASE == 'true'
       uses: ncipollo/release-action@main
-      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
       with:
         tag: ${{ steps.compile.outputs.build_tag }}
         artifacts: ${{ env.FIRMWARE_PATH }}/*
