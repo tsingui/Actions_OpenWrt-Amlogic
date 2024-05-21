@@ -160,10 +160,10 @@ jobs:
       if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
         cd $GITHUB_WORKSPACE
-        tar -zcvf AllPackages.tar.gz openwrt/bin/packages
-        cp AllPackages.tar.gz openwrt/bin/targets/*/*
-        cd openwrt/bin/targets/armsr/armv8
-        tar -zcvf kmodsPackages.tar.gz packages
+        tar -zcvf AllPackages.tar.gz openwrt/bin/*
+        mv -f AllPackages.tar.gz openwrt/bin/targets/*/*
+        # cd openwrt/bin/targets/*/*
+        # tar -zcvf kmodsPackages.tar.gz packages
         # ls -al && cd && cd $GITHUB_WORKSPACE
         # cp kmodsPackages.tar.gz openwrt/bin/targets/*/*
 
