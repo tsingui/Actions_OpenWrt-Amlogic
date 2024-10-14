@@ -147,8 +147,8 @@ jobs:
       id: compile
       run: |
         cd openwrt
-        echo -e "$(($(nproc) + 2)) thread compile"
-        make -j$(($(nproc) + 2)) || make -j1 V=s || make -j1
+        echo -e "$(($(nproc) + 4)) thread compile"
+        make -j$(($(nproc) + 4)) || make -j1 V=s || make -j1
         echo "build_tag=openwrt_armvirt_v8_$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
         echo "--------------------------硬盘信息--------------------------"
