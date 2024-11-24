@@ -66,8 +66,8 @@ git clone --depth 1 https://github.com/vernesong/OpenClash.git package/OpenClash
 # git clone --depth 1 https://github.com/linkease/nas-packages-luci.git && mv nas-packages-luci/luci/* ./package && rm -rf nas-packages-luci
 # git clone https://github.com/kenzok8/small-package package/small-package
 # theme for openwrt-23.05
-git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 # theme for lede
 # git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 # git clone -b 18.06 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
@@ -79,6 +79,8 @@ rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-adguardhome
 rm -rf feeds/luci/applications/luci-app-ddns-go
 rm -rf feeds/luci/applications/luci-app-openclash
+rm -rf feeds/luci/applications/luci-app-passwall
+rm -rf feeds/luci/applications/luci-app-passwall2
 # rm -rf feeds/luci/applications/luci-app-diskman
 # rm -rf package/small-package/luci-app-amlogic
 # rm -rf package/small-package/luci-app-argon*
