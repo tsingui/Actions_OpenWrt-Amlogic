@@ -75,6 +75,12 @@ git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-ap
 # 删除重复包
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-argon-config
+rm -rf feeds/luci/applications/luci-app-alist
+rm -rf feeds/luci/applications/luci-app-adguardhome
+rm -rf feeds/luci/applications/luci-app-ddns-go
+rm -rf feeds/luci/applications/luci-app-openclash
+rm -rf feeds/luci/applications/
+rm -rf feeds/luci/applications/
 # rm -rf feeds/luci/applications/luci-app-diskman
 # rm -rf package/small-package/luci-app-amlogic
 # rm -rf package/small-package/luci-app-argon*
