@@ -31,11 +31,13 @@ echo "DISTRIB_SOURCECODE='OpenWrt'" >>package/base-files/files/etc/openwrt_relea
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 10.0.0.2）
 sed -i 's/192.168.1.1/10.0.0.2/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.0.0.2/g' package/base-files/luci2/bin/config_generate
 sed -i 's/192.168.1.1/10.0.0.2/g' package/base-files/Makefile
 sed -i 's/192.168.1.255/10.0.0.255/g' package/base-files/Makefile
 
 # Modify system hostname（FROM OpenWrt CHANGE TO OpenWrt-N1）
-# sed -i 's/OpenWrt/OpenWrt-N1/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/Tomato/g' package/base-files/files/bin/config_generate
+sed -i 's/LEDE/Tomato/g' package/base-files/files/bin/config_generate
 
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
