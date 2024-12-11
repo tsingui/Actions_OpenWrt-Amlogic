@@ -50,7 +50,7 @@ sed -i 's/LEDE/Tomato/g' package/base-files/files/bin/config_generate
 # svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-diskman package/luci-app-diskman
 # git clone --depth 1 https://github.com/lisaac/luci-app-diskman.git && mv luci-app-diskman/applications/luci-app-diskman package/luci-app-diskman && rm -rf luci-app-diskman
 # svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
-git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
+# git clone --depth 1 https://github.com/sbwml/luci-app-alist package/luci-app-alist
 git clone --depth 1 https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 git clone --depth 1 https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 git clone --depth 1 https://github.com/kiddin9/openwrt-clouddrive2.git package/clouddrive2
