@@ -38,6 +38,7 @@ sed -i 's/192.168.1.255/10.0.0.255/g' package/base-files/Makefile
 # Modify system hostname（FROM OpenWrt CHANGE TO OpenWrt-N1）
 sed -i 's/OpenWrt/Tomato/g' package/base-files/files/bin/config_generate
 sed -i 's/LEDE/Tomato/g' package/base-files/files/bin/config_generate
+sed -i 's/LEDE/Tomato/g' package/base-files/luci2/bin/config_generate
 
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
