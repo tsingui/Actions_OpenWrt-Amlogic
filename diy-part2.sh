@@ -58,7 +58,7 @@ git clone --depth 1 https://github.com/kiddin9/openwrt-clouddrive2.git package/c
 git clone --depth 1 https://github.com/gdck/luci-app-cupsd.git package/luci-app-cupsd
 # git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go.git package/luci-app-ddns-go
 git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
-git clone --depth 1 https://github.com/muink/luci-app-netdata.git package/luci-app-dockerman
+git clone --depth 1 https://github.com/muink/luci-app-netdata.git package/luci-app-netdata
 git clone --depth 1 https://github.com/vernesong/OpenClash.git package/OpenClash
 # mkdir -p package/luci-app-diskman && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/applications/luci-app-diskman/Makefile -O package/luci-app-diskman/Makefile
 # mkdir -p package/parted && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile
@@ -92,22 +92,6 @@ rm -rf feeds/packages/admin/netdata
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-passwall2
-# rm -rf feeds/luci/applications/luci-app-diskman
-# rm -rf package/small-package/luci-app-amlogic
-# rm -rf package/small-package/luci-app-argon*
-# rm -rf package/small-package/luci-theme-argon*
-# rm -rf feeds/luci/applications/luci-app-netdata
-# rm -rf package/small-package/luci-app-koolproxyR
-# rm -rf package/small-package/luci-app-godproxy
-# rm -rf package/small-package/openvpn-easy-rsa-whisky
-# rm -rf package/small-package/luci-app-mosdns
-# rm -rf package/small-package/luci-app-openvpn-server
-# rm -rf package/small-package/luci-app-store
-# rm -rf package/small-package/luci-app-istorex
-# rm -rf package/small-package/luci-app-quickstart
-# rm -rf package/small-package/luci-app-xray
-# rm -rf package/small-package/luci-app-wrtbwmon
-# rm -rf package/small-package/wrtbwmon
 
 # 其他调整
 # sed -i 's#https://github.com/breakings/OpenWrt#https://github.com/tsingui/Actions_OpenWrt-Amlogic#g' package/luci-app-amlogic/luci-app-amlogic/root/etc/config/amlogic
