@@ -59,6 +59,7 @@ git clone --depth 1 https://github.com/gdck/luci-app-cupsd.git package/luci-app-
 # git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go.git package/luci-app-ddns-go
 git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 git clone --depth 1 https://github.com/muink/luci-app-netdata.git package/luci-app-netdata
+git clone --depth 1 https://github.com/netdata/netdata.git package/netdata
 git clone --depth 1 https://github.com/vernesong/OpenClash.git package/OpenClash
 # mkdir -p package/luci-app-diskman && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/applications/luci-app-diskman/Makefile -O package/luci-app-diskman/Makefile
 # mkdir -p package/parted && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile
