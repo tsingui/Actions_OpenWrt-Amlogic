@@ -58,6 +58,7 @@ git clone --depth 1 https://github.com/kiddin9/openwrt-clouddrive2.git package/c
 git clone --depth 1 https://github.com/gdck/luci-app-cupsd.git package/luci-app-cupsd
 # git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go.git package/luci-app-ddns-go
 git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
+git clone --depth 1 https://github.com/muink/luci-app-netdata.git package/luci-app-dockerman
 git clone --depth 1 https://github.com/vernesong/OpenClash.git package/OpenClash
 # mkdir -p package/luci-app-diskman && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/applications/luci-app-diskman/Makefile -O package/luci-app-diskman/Makefile
 # mkdir -p package/parted && wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -O package/parted/Makefile
@@ -86,6 +87,8 @@ rm -rf feeds/packages/net/alist
 rm -rf feeds/luci/applications/luci-app-adguardhome
 # rm -rf feeds/luci/applications/luci-app-ddns-go
 rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-netdata
+rm -rf feeds/packages/admin/netdata
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-passwall2
