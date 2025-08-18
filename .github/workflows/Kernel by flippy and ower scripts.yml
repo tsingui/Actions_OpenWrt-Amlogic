@@ -38,13 +38,13 @@ jobs:
       env:
         WHOAMI: tsingui
         OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
-        PACKAGE_SOC: s905d_s905x3
+        PACKAGE_SOC: s905d_s905x3_s922x
         # KERNEL_AUTO_LATEST: false
         # KERNEL_REPO_URL: https://github.com/tsingui/kernel/releases/tag/kernel_stable
         # KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/releases/tag/kernel_stable
         # KERNEL_REPO_URL: https://github.com/ophub/kernel/releases/tag/kernel_stable
         KERNEL_REPO_URL: https://github.com/ophub/kernel/releases/tag/kernel_flippy
-        KERNEL_VERSION_NAME: 5.4.290_5.10.230_5.15.186_6.1.140_6.6.100_6.12.40
+        KERNEL_VERSION_NAME: 6.1.140_6.6.100_6.12.40
 
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
