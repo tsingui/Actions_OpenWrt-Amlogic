@@ -28,9 +28,9 @@ jobs:
         [ -d openwrt-armvirt ] || mkdir -p openwrt-armvirt
         # curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" | grep -o "openwrt_armvirt_.*/openwrt-armsr-armv8-.*\.tar.gz" | head -n 1 > DOWNLOAD_ARMVIRT
         # curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" | grep -o "openwrt_armvirt_.*/openwrt-armvirt-.*\.tar.gz" | head -n 1 > DOWNLOAD_ARMVIRT
-        curl -s "https://github.com/ophub/amlogic-s9xxx-openwrt/releases" | grep -o "OpenWrt_lede_.*/openwrt-armsr-armv8-.*\.tar.gz" | head -n 1 > DOWNLOAD_ARMVIRT
+        # curl -s "https://github.com/ophub/amlogic-s9xxx-openwrt/releases" | grep -o "OpenWrt_lede_.*/openwrt-armsr-armv8-.*\.tar.gz" | head -n 1 > DOWNLOAD_ARMVIRT
         # curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" | grep -o "openwrt_armvirt_.*/immortalwrt-.*\.tar.gz" | head -n 1 > DOWNLOAD_ARMVIRT
-        [ -s DOWNLOAD_ARMVIRT ] && wget -q -P openwrt-armvirt https://github.com/ophub/amlogic-s9xxx-openwrt/releases/download/$(cat DOWNLOAD_ARMVIRT)
+        [ -s DOWNLOAD_ARMVIRT ] && wget -q -P openwrt-armvirt https://github.com/ophub/amlogic-s9xxx-openwrt/releases/download/OpenWrt_lede_save_2025.08/openwrt-armsr-armv8-generic-rootfs.tar.gz
         echo "build_tag=openwrt_armvirt_v8_$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
 
     - name: Package Armvirt as OpenWrt
