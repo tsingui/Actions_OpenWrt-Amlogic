@@ -4,7 +4,7 @@
 # Cron: min (0 - 59) / hour (0 - 23) / day of month (1 - 31) / month (1 - 12) / day of week (0 - 6)(Sunday - Saturday)
 #============================================================================================================
 
-name: Kernel by flippy and ower scripts
+name: Kernel by ower scripts
 
 on:
   repository_dispatch:
@@ -31,7 +31,7 @@ jobs:
         curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" | grep -o "openwrt_armvirt_.*/openwrt-armsr-armv8-.*\.tar.gz" | head -n 1 > DOWNLOAD_ARMVIRT
         # curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" | grep -o "openwrt_armvirt_.*/immortalwrt-.*\.tar.gz" | head -n 1 > DOWNLOAD_ARMVIRT
         [ -s DOWNLOAD_ARMVIRT ] && wget -q -P openwrt-armvirt https://github.com/${GITHUB_REPOSITORY}/releases/download/$(cat DOWNLOAD_ARMVIRT)
-        echo "build_tag=openwrt_armvirt_v8_$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
+        echo "build_tag=openwrt_image_v8_$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
 
     - name: Package Armvirt as OpenWrt
       uses: tsingui/openwrt_packit@master
