@@ -33,18 +33,28 @@ jobs:
         [ -s DOWNLOAD_ARMVIRT ] && wget -q -P openwrt-armvirt https://github.com/${GITHUB_REPOSITORY}/releases/download/$(cat DOWNLOAD_ARMVIRT)
         echo "build_tag=openwrt_image_v8_$(date +"%Y-%m-%d-%H-%M")" >> $GITHUB_OUTPUT
 
-    - name: Package Armvirt as OpenWrt
-      uses: tsingui/openwrt_packit@master
-      env:
-        WHOAMI: tsingui
-        OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
-        PACKAGE_SOC: s905d_s905x3_s922x
+   # - name: Package Armvirt as OpenWrt
+   #   uses: tsingui/openwrt_packit@master
+   #   env:
+   #     WHOAMI: tsingui
+   #     OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
+   #     PACKAGE_SOC: s905d_s905x3_s922x
         # KERNEL_AUTO_LATEST: false
-        KERNEL_REPO_URL: https://github.com/tsingui/kernel/releases/tag/kernel_stable
+   #     KERNEL_REPO_URL: https://github.com/tsingui/kernel/releases/tag/kernel_stable
         # KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/releases/tag/kernel_stable
         # KERNEL_REPO_URL: https://github.com/ophub/kernel/releases/tag/kernel_stable
         # KERNEL_REPO_URL: https://github.com/ophub/kernel/releases/tag/kernel_flippy
-        KERNEL_VERSION_NAME: 6.1.140_6.6.100_6.12.40
+   #     KERNEL_VERSION_NAME: 6.1.140_6.6.100_6.12.40
+      - name: Packaging OpenWrt
+        uses: ophub/amlogic-s9xxx-openwrt@main
+        with:
+          openwrt_path: openwrt-armvirt/*.tar.gz
+          openwrt_board: s922x-ct2000
+          openwrt_kernel: 6.1.y_6.6.y
+          auto_kernel: true
+          kernel_repo: tsingui/kernel
+          kernel_usage: stable
+          builder_name: tsingui
 
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@v1
