@@ -33,7 +33,7 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     # runs-on: ubuntu-latest
-    if: ${{ github.event.repository.owner.id }} == ${{ github.event.sender.id }}
+    if: ${{ github.event.repository.owner.id == github.event.sender.id }}
 
     steps:
     - name: Checkout
@@ -170,7 +170,7 @@ jobs:
 
     - name: 发布通用镜像
       uses: ncipollo/release-action@main
-      if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
+      if: ${{ steps.compile.outputs.status == 'success' && !cancelled() }}
       with:
         tag: ${{ steps.compile.outputs.build_tag }}
         artifacts: "openwrt/bin/targets/*/*/*.tar.gz"
