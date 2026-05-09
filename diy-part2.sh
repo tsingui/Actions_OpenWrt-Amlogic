@@ -57,7 +57,7 @@ git clone --depth 1 https://github.com/kongfl888/luci-app-adguardhome.git packag
 # git clone --depth 1 https://github.com/kiddin9/openwrt-clouddrive2.git package/clouddrive2
 git clone --depth 1 https://github.com/gdck/luci-app-cupsd.git package/luci-app-cupsd
 # git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go.git package/luci-app-ddns-go
-git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
+# git clone --depth 1 https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 git clone --depth 1 https://github.com/muink/luci-app-netdata.git package/luci-app-netdata
 git clone --depth 1 https://github.com/muink/openwrt-netdata-ssl.git package/netdata-ssl
 git clone --depth 1 https://github.com/vernesong/OpenClash.git package/OpenClash
