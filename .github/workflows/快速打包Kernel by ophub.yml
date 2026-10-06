@@ -34,6 +34,7 @@ jobs:
         WHOAMI: tsingui
         OPENWRT_ARMVIRT: openwrt-armvirt/*.tar.gz
         PACKAGE_SOC: s905d_s905x3_s922X
+        KERNEL_TAGS: stable
         #KERNEL_AUTO_LATEST: ture
        # KERNEL_REPO_URL: https://github.com/tsingui/kernel/releases/tag/kernel_stable
         KERNEL_REPO_URL: https://github.com/ophub/kernel/releases/tag/kernel_stable
